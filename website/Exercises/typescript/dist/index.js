@@ -1,18 +1,18 @@
-var muted = true;
+let muted = true;
 muted = false;
 //Numeros
-var age = 6;
-var numerator = 24;
-var denominator = age;
-var resultado = numerator / denominator;
+let age = 6;
+let numerator = 24;
+let denominator = age;
+let resultado = numerator / denominator;
 //string
-var nombre = 'Petter';
-var saludo = "Hola me llamo " + nombre;
+let nombre = 'Petter';
+let saludo = `Hola me llamo ${nombre}`;
 //Arreglos
-var people = [];
+let people = [];
 people = ["Pedro", "Maria", "Esperanza"];
 people.push("Ana");
-var peoppleAndNumbers = [];
+let peoppleAndNumbers = [];
 peoppleAndNumbers.push("Manuel");
 peoppleAndNumbers.push(32);
 //Enum
@@ -22,30 +22,30 @@ var Color;
     Color["Green"] = "Green";
     Color["Brown"] = "Brown";
 })(Color || (Color = {}));
-var favoriteColor = Color.Green;
-console.log("Mi color favorito es " + favoriteColor);
+let favoriteColor = Color.Green;
+console.log(`Mi color favorito es ${favoriteColor}`);
 // Any
-var comodin = "Joker";
+let comodin = "Joker";
 comodin = { type: "Goost" };
 // Object 
-var SomeObject = { type: "WillCard" };
+let SomeObject = { type: "WillCard" };
 //Funciones
 function add(a, b) {
     return a + b;
 }
-var sum = add(4, 9);
+const sum = add(4, 9);
 function createAdder(a) {
     return function (b) {
         return b + a;
     };
 }
-var AddFour = createAdder(3);
-var fourPlus = AddFour(4);
+const AddFour = createAdder(3);
+const fourPlus = AddFour(4);
 function fullName(firstName, lastName) {
-    return firstName + ", " + lastName;
+    return `${firstName}, ${lastName}`;
 }
-var Petter = fullName('Petter');
-var rect = {
+const Petter = fullName('Petter');
+let rect = {
     width: 2,
     height: 5,
     Color: Color.Green
@@ -53,9 +53,9 @@ var rect = {
 function area(r) {
     return r.height * r.width;
 }
-var areaRect = area(rect);
+const areaRect = area(rect);
 console.log(areaRect);
 rect.toString = function () {
-    return this.color ? "A rectangule " + this.color : "A Rectangule";
+    return this.color ? `A rectangule ${this.color}` : `A Rectangule`;
 };
 console.log(rect.toString());
