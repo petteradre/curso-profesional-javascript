@@ -23,10 +23,10 @@ async function precache() {
   return cache.addAll([
     '/',
     'index.html',
-    'assets/index.js',
-    'assets/MediaPlayer.js',
-    'assets/plugins/AutoPlay.js',
-    'assets/plugins/AutoPause.js',
+    'assets/dist/index.js',
+    'assets/dist/MediaPlayer.js',
+    'assets/dist/plugins/AutoPlay.js',
+    'assets/dist/plugins/AutoPause.js',
     'assets/index.css',
     'assets/BigBuckBunny.mp4',
   ]);

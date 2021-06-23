@@ -1,17 +1,19 @@
-import MediaPlayer_1 from "./MediaPlayer.js";
-import AutoPlay_1 from "./Plugins/AutoPlay.js";
-import AutoPause_1 from "./Plugins/AutoPause.js";
-var video = document.querySelector('video');
-var player = new MediaPlayer_1({ el: video,
+import MediaPlayer from './MediaPlayer.js';
+import AutoPlay from './Plugins/AutoPlay.js';
+import AutoPause from './Plugins/AutoPause.js';
+import Ads from './Plugins/Ads/indexAds.js';
+const video = document.querySelector('video');
+const player = new MediaPlayer({ el: video,
     plugins: [
-        new AutoPlay_1(),
-        new AutoPause_1()
+        new AutoPlay(),
+        new AutoPause(),
+        new Ads()
     ],
 });
-var playButton = document.querySelector('button');
-playButton.onclick = function () { return player.togglePlay(); };
-var muteButton = document.querySelector('#muteButton');
-muteButton.onclick = function () {
+const playButton = document.querySelector('button');
+playButton.onclick = () => player.togglePlay();
+const muteButton = document.querySelector('#muteButton');
+muteButton.onclick = () => {
     if (player.media.muted) {
         player.unmute();
     }
@@ -20,7 +22,7 @@ muteButton.onclick = function () {
     }
 };
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('sw.js').catch(function (error) {
+    navigator.serviceWorker.register('sw.js').catch(error => {
         console.log(error.message);
     });
 }

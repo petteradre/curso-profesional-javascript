@@ -1,11 +1,17 @@
-//Object.defineProperty(exports, "__esModule", { value: true });
-var MediaPlayer = /** @class */ (function () {
-    function MediaPlayer(config) {
+class MediaPlayer {
+    constructor(config) {
         this.media = config.el;
         this.plugins = config.plugins || [];
+        this.initPlayer();
         this.initPlugins();
     }
-    MediaPlayer.prototype.initPlugins = function () {
+    initPlayer() {
+        this.container = document.createElement('div');
+        this.container.style.position = 'relative';
+        this.media.parentNode.insertBefore(this.container, this.media);
+        this.container.appendChild(this.media);
+    }
+    initPlugins() {
         /*     const player = {
               play: () => this.play(),
               pause: () => this.pause(),
@@ -17,32 +23,29 @@ var MediaPlayer = /** @class */ (function () {
                 this.media.muted = value;
               },
             }; */
-        var _this = this;
-        this.plugins.forEach(function (plugin) {
-            plugin.run(_this);
+        this.plugins.forEach(plugin => {
+            plugin.run(this);
         });
-    };
-    MediaPlayer.prototype.play = function () {
+    }
+    play() {
         this.media.play();
-    };
-    MediaPlayer.prototype.pause = function () {
+    }
+    pause() {
         this.media.pause();
-    };
-    MediaPlayer.prototype.togglePlay = function () {
+    }
+    togglePlay() {
         if (this.media.paused) {
             this.play();
         }
         else {
             this.pause();
         }
-    };
-    MediaPlayer.prototype.mute = function () {
+    }
+    mute() {
         this.media.muted = true;
-    };
-    MediaPlayer.prototype.unmute = function () {
+    }
+    unmute() {
         this.media.muted = false;
-    };
-    return MediaPlayer;
-}());
-const _default = MediaPlayer;
-export { _default as default };
+    }
+}
+export default MediaPlayer;
